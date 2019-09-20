@@ -13,7 +13,7 @@ npm i -S mongoose mongodb axios react-scripts express concurrently cors react-do
 npm start
 ```
 
-Dependencies Used:
+## Dependencies Used:
 - React
 - React-Scripts
 - React-Dom
@@ -24,4 +24,4 @@ Dependencies Used:
 - Concurrently
 - Express
 
-If you get a bug, copy paste debug output and let me know :)
+### If you get a bug, copy paste debug output and let me know :)
