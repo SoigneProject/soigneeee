@@ -5,19 +5,23 @@ var Schema = mongoose.Schema;
 var UserSchema = new Schema({
     firstName: {
         type: String,
-        required: "Please enter your first name"
+        required: [true, "Please enter your first name"]
     },
     lastName: {
         type: String,
-        required: "Please enter your last name"
+        required: [true, "Please enter your last name"]
     },
-    displayName: {
+    username: {
         type: String,
-        required: "Please enter a display name"
+        required: [true, "Please enter a display name"]
     },
-    email: {
+    emailAddress: {
         type: String,
-        required: "Please enter your email address"
+        required: [true, "Please enter your email address"]
+    },
+    password: {
+        type: String,
+        required: [true, "Please enter a password"]
     }
 });
 

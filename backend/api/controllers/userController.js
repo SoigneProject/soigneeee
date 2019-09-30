@@ -1,11 +1,54 @@
 var UserModel = require('../models/userModel');
 
 // Get all users
-exports.get_all_users = function(req, res) {
-    res.send('NOT IMPLEMENTED: User GET');
+exports.get_all_users = function (req, res) {
+    // this api will get a user based on their username
+    //if the username exits it will pull from out database
+    UserModel.find((err, user) => {
+        if (err) return res.json({success: false, error: err});
+        return res.json({ success: true, user: user})
+    })
+};
+
+exports.get_a_user = function (req, res) {
+    var queryUsername = req.params.username;
+    UserModel.findOne({username: queryUsername}, function(err, obj) {
+        if (err) return res.json({success: false, error: err});
+        return res.send(obj);
+    })
 };
 
 // Create a user
-exports.create_a_user =  function(req, res) {
-    res.send('NOT IMPLEMENTED: User POST');
+exports.create_a_user = function (req, res) {
+    let user = new UserModel();
+    const {
+        username,
+        firstName,
+        lastName,
+        emailAddress,
+        password
+    } = req.body;
+
+    if (!username || !firstName || !lastName || !emailAddress || !password) {
+        return res.json({
+            success: false,
+            error: 'INVALID INPUTS'
+        });
+    }
+
+    user.username = username;
+    user.firstName = firstName;
+    user.lastName = lastName;
+    user.emailAddress = emailAddress;
+    user.password = password;
+
+    user.save((err) => {
+        if (err) return res.json({
+            success: false,
+            error: err
+        });
+        return res.json({
+            success: true
+        });
+    });
 };
