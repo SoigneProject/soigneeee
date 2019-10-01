@@ -1,6 +1,4 @@
 var UserModel = require('../models/userModel');
-var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-var xhr = new XMLHttpRequest();
 
 // Delete a user
 exports.delete_a_user = function (req, res) {
@@ -75,7 +73,9 @@ exports.create_a_user = function (req, res) {
         password
     } = req.body;
 
-    UserModel.count({username: username}, function (err, count) {
+    UserModel.count({
+        username: username
+    }, function (err, count) {
         if (count > 0) return res.json({
             created: false,
             error: "User Exists"
@@ -88,13 +88,13 @@ exports.create_a_user = function (req, res) {
                 error: 'INVALID INPUTS'
             });
         }
-    
+
         user.username = username;
         user.firstName = firstName;
         user.lastName = lastName;
         user.emailAddress = emailAddress;
         user.password = password;
-    
+
         user.save((err) => {
             if (err) return res.json({
                 success: false,
