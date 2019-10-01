@@ -84,7 +84,7 @@ exports.create_a_user = function (req, res) {
         // Start
         if (!username || !firstName || !lastName || !emailAddress || !password) {
             return res.json({
-                success: false,
+                created: false,
                 error: 'INVALID INPUTS'
             });
         }
@@ -97,11 +97,11 @@ exports.create_a_user = function (req, res) {
 
         user.save((err) => {
             if (err) return res.json({
-                success: false,
+                created: false,
                 error: err
             });
             return res.json({
-                success: true
+                created: true
             });
         });
     });
