@@ -1,14 +1,17 @@
 var mongoose = require('mongoose');
 var express = require('express'),
-  app = express(),
-  port = process.env.PORT || 3000,
-  userRoute = require('./api/routes/userRoute'),
-  bodyParser = require('body-parser');
+    app = express(),
+    port = process.env.PORT || 6969,
+    userRoute = require('./api/routes/userRoute'),
+    bodyParser = require('body-parser');
+var cors = require('cors')
+
+
 
 const uri = "mongodb+srv://Test:Test123@cs160-cluster-gigd4.mongodb.net/Soigne?retryWrites=true&w=majority";
 mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 let db = mongoose.connection;
@@ -18,12 +21,14 @@ db.on('error', console.error.bind(console, 'MongoDB connection error:'));
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
 app.use(bodyParser.urlencoded({
-  extended: false
+    extended: false
 }));
+app.use(cors()) // Use this after the variable declaration
+
 app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({
-  extended: true
+    extended: true
 }));
 app.use(bodyParser.json());
 
@@ -31,8 +36,8 @@ app.use(bodyParser.json());
 userRoute(app);
 
 // Error message for 404
-app.use(function (req, res) {
-  res.status(404).send("Sorry can't find that!");
+app.use(function(req, res) {
+    res.status(404).send("Sorry can't find that!");
 });
 
 app.listen(port);
