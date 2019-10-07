@@ -7,6 +7,9 @@ import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
+import InputField from './InputField';
+import logo from './soigne.png';
+
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
 
@@ -54,6 +57,7 @@ const useStyles = makeStyles(theme => ({
     flexGrow: 1,
     backgroundColor: 'white',
     textColor: 'black',
+    maxwidth: 500,
   },
 
 }));
@@ -68,11 +72,16 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
+    <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+
+    <InputField/>
+
       <AppBar position="static" elevation={0}>
         <Tabs
           variant="fullWidth"
           value={value}
           onChange={handleChange}
+          tabItemContainerStyle={{width: '400px'}}
           aria-label="nav tabs example"
           
           TabIndicatorProps={{
@@ -83,6 +92,7 @@ export default function NavTabs() {
           }}
           style = {{backgroundColor: 'white', color: 'black'}}
         >
+          
           <LinkTab label="About" href="/drafts" {...a11yProps(0)} />
           <LinkTab label="Favorites" href="/trash" {...a11yProps(1)} />
           <LinkTab label="Trending" href="/spam" {...a11yProps(2)} />
