@@ -3,10 +3,14 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Button from '@material-ui/core/Button';
 import logo from './soigne.png';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import { makeStyles } from '@material-ui/core/styles';
+import clsx from 'clsx';
+import InputField from './InputField';
+import TopMenu from './TopMenu';
+
 import axios from 'axios';
-
-console.log(logo);
-
 
 
   
@@ -15,7 +19,6 @@ class App extends Component {
   state = {
     data: [],
   };
-
 
   // when component mounts, first thing it does is fetch all existing data in our db
   // then we incorporate a polling logic so that we can easily see if our db has
@@ -100,16 +103,26 @@ class App extends Component {
       id: objIdToUpdate,
       update: { message: updateToApply },
     });
+  
   };
+
+
 
   // here is our UI
   // it is easy to understand their functions when you
   // see them render into our screen
   render() {
     const { data } = this.state;
+    const inputProps = {
+      step: 300,
+    };
+
     return (
       <div>
       <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+      <InputField/>
+      <TopMenu/>
+
 
         <ul>
           {data.length <= 0
