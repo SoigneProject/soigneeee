@@ -1,6 +1,13 @@
 // /client/App.js
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
+import Button from '@material-ui/core/Button';
+import logo from './soigne.png';
 import axios from 'axios';
+
+console.log(logo);
+
+
 
   
 class App extends Component {
@@ -102,6 +109,8 @@ class App extends Component {
     const { data } = this.state;
     return (
       <div>
+      <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+
         <ul>
           {data.length <= 0
             ? 'NO DB ENTRIES YET'
@@ -170,5 +179,6 @@ class App extends Component {
     );
   }
 }
+
 
 export default App;
