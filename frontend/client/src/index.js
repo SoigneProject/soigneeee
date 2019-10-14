@@ -4,6 +4,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Signup from './Signup'
+import Feed from './Feed'
 
 const routing = (
     <Router>
@@ -13,11 +14,15 @@ const routing = (
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/Feed">Feed</Link>
+          </li>
+          <li>
             <Link to="/Signup">Signup</Link>
           </li>
         </ul>
         <Route exact path="/" component={App} />
-        <Route path="/Signup" component={Signup} />
+        <Route path = "/Feed" component = {Feed} />
+        <Route path= "/Signup" component={Signup} />
       </div>
     </Router>
   )

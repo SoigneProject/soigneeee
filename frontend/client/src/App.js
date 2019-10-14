@@ -282,10 +282,7 @@ class App extends Component {
         </button>
       </div>
 
-      <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
 
-      <InputField/>
-      <TopMenu/>
 
         <ul>
           {data.length <= 0
