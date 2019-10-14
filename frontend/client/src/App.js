@@ -36,13 +36,8 @@ import pic3 from './3.jpeg';
 import pic4 from './4.jpeg';
 import pic5 from './5.jpeg';
 import pic6 from './6.jpeg';
-
-
-
-
-
-
-
+import Signup from './Signup';
+import axios from 'axios';
   
 class App extends Component {
   // initialize our state
@@ -281,6 +276,18 @@ class App extends Component {
   
   </Grid>
    
+
+      <div style={{ padding: '10px' }}>
+        <button onClick={() => window.location = 'Signup.js'}>
+          SignUp
+        </button>
+      </div>
+
+      <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+
+      <InputField/>
+      <TopMenu/>
+
         <ul>
           {data.length <= 0
             ? 'NO DB ENTRIES YET'
@@ -349,6 +356,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;

@@ -1,4 +1,5 @@
 import React from 'react';
+import Signup from './Signup';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
@@ -45,7 +46,7 @@ function LinkTab(props) {
     <Tab
       component="a"
       onClick={event => {
-        event.preventDefault();
+        event.SignIn();
       }}
       {...props}
     />
@@ -96,7 +97,7 @@ export default function NavTabs() {
           <LinkTab label="About" href="/drafts" {...a11yProps(0)} />
           <LinkTab label="Favorites" href="/trash" {...a11yProps(1)} />
           <LinkTab label="Trending" href="/spam" {...a11yProps(2)} />
-          <LinkTab label="Kristina" href="/spam" {...a11yProps(2)} />
+          <LinkTab label="Kristina" href = "/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       
