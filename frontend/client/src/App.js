@@ -17,7 +17,6 @@ import { withStyles } from '@material-ui/core/styles';
 import pic from './kennet.JPG';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
-import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider'
 import { createMuiTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
@@ -37,7 +36,7 @@ import pic4 from './4.jpeg';
 import pic5 from './5.jpeg';
 import pic6 from './6.jpeg';
 import Signup from './Signup';
-import axios from 'axios';
+import logo from './soigne.png';
   
 class App extends Component {
   // initialize our state
