@@ -16,7 +16,6 @@ function Types(props) {
   return (
     <div className={classes.root}>
       <Typography component="h2" variant="h1" gutterBottom>
-    
       </Typography>
     </div>
   );
