@@ -9,10 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import InputField from './InputField';
 import TopMenu from './TopMenu';
-
+import Signup from './Signup';
 import axios from 'axios';
-
-
   
 class App extends Component {
   // initialize our state
@@ -119,10 +117,17 @@ class App extends Component {
 
     return (
       <div>
+
+      <div style={{ padding: '10px' }}>
+        <button onClick={() => window.location = 'Signup.js'}>
+          SignUp
+        </button>
+      </div>
+
       <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+
       <InputField/>
       <TopMenu/>
-
 
         <ul>
           {data.length <= 0
@@ -192,6 +197,5 @@ class App extends Component {
     );
   }
 }
-
 
 export default App;
