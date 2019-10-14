@@ -1,9 +1,20 @@
 // /client/App.js
 import React, { Component } from 'react';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 import axios from 'axios';
 import './App.css';
+import LoginScreen from './LoginScreen';
+
+injectTapEventPlugin();
 
 class App extends Component {
+  constructor(props) {
+    super (props);
+    this.state= {
+      loginPage:[],
+      uploadScreen:[]
+    }
+  }
   // initialize our state
   state = {
     data: [],
@@ -24,6 +35,12 @@ class App extends Component {
       let interval = setInterval(this.getDataFromDb, 1000);
       this.setState({ intervalIsSet: interval });
     }
+
+    var loginPage=[];
+    loginPage.push(<LoginScreen parentContexxt={this}/>);
+    this.setState({
+      loginPage:loginPage
+    })
   }
 
   // never let a process live forever
@@ -104,7 +121,9 @@ class App extends Component {
   render() {
     const { data } = this.state;
     return (
-      <div>
+      <div className="App">
+        {this.state.loginPage}
+        {this.state.uploadScreen}
         <ul>
           {data.length <= 0
             ? 'NO DB ENTRIES YET'
