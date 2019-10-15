@@ -4,9 +4,10 @@
 1. Clone the repo
 2. Open in vscode or whatever IDE
 3. Open terminal (check current directory is root folder **soigneeee**)
-4. Install packages with:
+4. Install all required packages with:
 ```
-npm i -S mongoose mongodb axios react-scripts express concurrently cors react-dom react
+npm install
+npm update
 ```
 5. Start the app with:
 ```
@@ -17,9 +18,14 @@ npm start
 - React
 - React-Scripts
 - React-Dom
+- React-Router-Dom
+- Typeface-Roboto
+- Material-Ui
+- Formiz
 - Mongoose
 - MongoDB
 - Axios
+- Bcrypt
 - Cors
 - Concurrently
 - Express
