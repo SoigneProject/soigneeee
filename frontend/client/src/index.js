@@ -5,6 +5,7 @@ import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Signup from './Signup'
 import Feed from './Feed'
+import signModal from './signModal'
 
 const routing = (
     <Router>
@@ -19,10 +20,14 @@ const routing = (
           <li>
             <Link to="/Signup">Signup</Link>
           </li>
+          <li>
+            <Link to="/signModal">signModal</Link>
+          </li>
         </ul>
         <Route exact path="/" component={App} />
         <Route path = "/Feed" component = {Feed} />
         <Route path= "/Signup" component={Signup} />
+        <Route path= "/signModal" component={signModal} />
 
       </div>
     </Router>

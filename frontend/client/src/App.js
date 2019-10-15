@@ -37,6 +37,7 @@ import pic5 from './images/5.jpeg';
 import pic6 from './images/6.jpeg';
 import Signup from './Signup';
 import logo from './images/soigne.png';
+import signModal from './signModal';
   
 class App extends Component {
   // initialize our state
@@ -150,7 +151,6 @@ class App extends Component {
       },
     });
 
-
     
     const inputProps = {
       step: 300,
@@ -219,8 +219,8 @@ class App extends Component {
 
     return (
       <div>
+
     <TopMenu/>
-    
     <Grid container spacing={3}>
     <Grid item xs={4}>
       <div style={paperStyle}>
@@ -274,16 +274,6 @@ class App extends Component {
     
   
   </Grid>
-   
-
-      <div style={{ padding: '10px' }}>
-        <button onClick={() => window.location = 'Signup.js'}>
-          SignUp
-        </button>
-      </div>
-
-
-
         <ul>
           {data.length <= 0
             ? 'NO DB ENTRIES YET'
