@@ -23,6 +23,7 @@ const routing = (
         <Route exact path="/" component={App} />
         <Route path = "/Feed" component = {Feed} />
         <Route path= "/Signup" component={Signup} />
+
       </div>
     </Router>
   )

@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 
 import InputField from './InputField';
-import logo from './soigne.png';
+import logo from './images/soigne.png';
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

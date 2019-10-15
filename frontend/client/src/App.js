@@ -14,7 +14,7 @@ import 'typeface-roboto';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import pic from './kennet.JPG';
+import pic from './images/kennet.JPG';
 import axios from 'axios';
 import Paper from '@material-ui/core/Paper';
 import { createMuiTheme } from '@material-ui/core/styles';
@@ -29,14 +29,14 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import IconButton from '@material-ui/core/IconButton';
 import InfoIcon from '@material-ui/icons/Info';
-import pic1 from './1.jpg';
-import pic2 from './2.jpg';
-import pic3 from './3.jpeg';
-import pic4 from './4.jpeg';
-import pic5 from './5.jpeg';
-import pic6 from './6.jpeg';
+import pic1 from './images/1.jpg';
+import pic2 from './images/2.jpg';
+import pic3 from './images/3.jpeg';
+import pic4 from './images/4.jpeg';
+import pic5 from './images/5.jpeg';
+import pic6 from './images/6.jpeg';
 import Signup from './Signup';
-import logo from './soigne.png';
+import logo from './images/soigne.png';
   
 class App extends Component {
   // initialize our state
