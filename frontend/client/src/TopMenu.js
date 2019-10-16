@@ -73,9 +73,11 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
-    <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
+    <div style = {{display: 'inline-flex',}}>
+    <img src = {logo} alt = "Logo" style = {{width: '16%', height: 76, marginTop: 5,}}/>
 
     <InputField/>
+    </div>
 
       <AppBar position="static" elevation={0}>
         <Tabs

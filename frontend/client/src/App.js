@@ -69,7 +69,7 @@ class App extends Component {
     }
 
    getDataFromDb = () => {
-        fetch('http://localhost:6969/users/Sarah01')
+        fetch('http://localhost:6969/users/kristinaleopandas')
           .then((res) => res.json())
           .then((userObj) => this.setState({userObj:userObj}));
       };
@@ -218,6 +218,8 @@ class App extends Component {
           ))}
         </TableBody>
       </Table>
+  <Typography style = {{marginTop: 20, marginLeft: 8,}} color = 'textSecondary' align = 'center'>SF Transplant, NY gal at heart. Combining street style and luxury
+  is my passion. Oh, and I also love drinking boba.</Typography>
 
   </div>
   
@@ -245,70 +247,7 @@ class App extends Component {
     
   
   </Grid>
-    <ul>
-          {!userObj
-            ? 'you failed'
-            : userObj.followers.map((entry) => (
-                <li style={{ padding: '10px' }} key={userObj.message}>
-                  <span style={{ color: 'gray' }}> username: </span>
-                  {entry.username} <br />
-                </li>
-              ))}
-        </ul> 
-   
-
-      <div style={{ padding: '10px' }}>
-        <button onClick={() => window.location = 'Signup.js'}>
-          SignUp
-        </button>
-      </div>
-
-
-
-       
-        <div style={{ padding: '10px' }}>
-          <input
-            type="text"
-            onChange={(e) => this.setState({ message: e.target.value })}
-            placeholder="add something in the database"
-            style={{ width: '200px' }}
-          />
-          <button onClick={() => this.putDataToDB(this.state.message)}>
-            ADD
-          </button>
-        </div>
-        <div style={{ padding: '10px' }}>
-          <input
-            type="text"
-            style={{ width: '200px' }}
-            onChange={(e) => this.setState({ idToDelete: e.target.value })}
-            placeholder="put id of item to delete here"
-          />
-          <button onClick={() => this.deleteFromDB(this.state.idToDelete)}>
-            DELETE
-          </button>
-        </div>
-        <div style={{ padding: '10px' }}>
-          <input
-            type="text"
-            style={{ width: '200px' }}
-            onChange={(e) => this.setState({ idToUpdate: e.target.value })}
-            placeholder="id of item to update here"
-          />
-          <input
-            type="text"
-            style={{ width: '200px' }}
-            onChange={(e) => this.setState({ updateToApply: e.target.value })}
-            placeholder="put new value of the item here"
-          />
-          <button
-            onClick={() =>
-              this.updateDB(this.state.idToUpdate, this.state.updateToApply)
-            }
-          >
-            UPDATE
-          </button>
-        </div>
+    
       </div>
     );
   }
