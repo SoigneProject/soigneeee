@@ -154,20 +154,13 @@ class App extends Component {
         },
        ];
 
+   // const rows1 = [
+   //   userObj.followers.forEach(element =>{
+   //     createData(element, "555");
+   //   })
+   // ];
     const rows = [
-      userObj.followers.map((entry) =>(
-        createData(entry.username, "hi")
-      )),
-    ];
-    const rows1 = [
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
-      createData("user1", "user2"),
+      createData("444", "555"),
     ]
     function createData(followers, following) {
       return { followers, following };
@@ -199,12 +192,14 @@ class App extends Component {
   </TableRow>
 </TableHead>
 <TableBody>
-  {rows1.map(row => (
-    <TableRow key={row.name}>
-      <TableCell align="center">{row.followers}</TableCell>
-      <TableCell align="center">{row.following}</TableCell>
-    </TableRow>
-  ))}
+          {!userObj
+            ? 'you failed'
+            : userObj.followers.map((entry) => (
+  <TableRow>
+  <TableCell align = "center">{entry.username}</TableCell>
+  <TableCell align = "center">{entry.username}</TableCell>
+</TableRow>
+))}
 </TableBody>
 </Table></FollowersList>
 <Table style = {tableStyle} aria-label="simple table">
@@ -215,7 +210,7 @@ class App extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-            </Table>rows.map(row => (
+            {rows.map(row => (
             <TableRow key={row.name}>
               <TableCell align="center">{row.followers}</TableCell>
               <TableCell align="center">{row.following}</TableCell>
@@ -250,7 +245,16 @@ class App extends Component {
     
   
   </Grid>
-   
+    <ul>
+          {!userObj
+            ? 'you failed'
+            : userObj.followers.map((entry) => (
+                <li style={{ padding: '10px' }} key={userObj.message}>
+                  <span style={{ color: 'gray' }}> username: </span>
+                  {entry.username} <br />
+                </li>
+              ))}
+        </ul> 
    
 
       <div style={{ padding: '10px' }}>
