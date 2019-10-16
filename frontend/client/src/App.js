@@ -49,20 +49,36 @@ class App extends Component {
     super(props);   
   }
   state = {
-        data: [],
+    userObj: undefined,
       };
+    componentDidMount() {
+      this.getDataFromDb();
+      if (!this.state.intervalIsSet) {
+        let interval = setInterval(this.getDataFromDb, 1000);
+        this.setState({ intervalIsSet: interval });
+      }
+    }
+  
+    // never let a process live forever
+    // always kill a process everytime we are done using it
+    componentWillUnmount() {
+      if (this.state.intervalIsSet) {
+        clearInterval(this.state.intervalIsSet);
+        this.setState({ intervalIsSet: null });
+      }
+    }
 
    getDataFromDb = () => {
-        fetch('http://localhost:6969/users')
+        fetch('http://localhost:6969/users/Sarah01')
           .then((res) => res.json())
-          .then((data) => this.setState({ data: data }));
+          .then((userObj) => this.setState({userObj:userObj}));
       };
 
   // here is our UI
   // it is easy to understand their functions when you
   // see them render into our screen
   render() {
-    const { data } = this.state;  
+    const { userObj } = this.state;  
 
     const theme = createMuiTheme({
       overrides: {
@@ -139,7 +155,9 @@ class App extends Component {
        ];
 
     const rows = [
-      createData(291, 492),
+      userObj.followers.map((entry) =>(
+        createData(entry.username, "hi")
+      )),
     ];
     const rows1 = [
       createData("user1", "user2"),
@@ -197,7 +215,7 @@ class App extends Component {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+            </Table>rows.map(row => (
             <TableRow key={row.name}>
               <TableCell align="center">{row.followers}</TableCell>
               <TableCell align="center">{row.following}</TableCell>
@@ -232,27 +250,7 @@ class App extends Component {
     
   
   </Grid>
-    <ul>{console.log(data)}
-       {data.length <= 0
-              ? 'NO DB ENTRIES YET'
-              : data.userObj.map((entry) => (
-                  <li style={{ padding: '10px' }} key={data.message}>
-                    <span style={{ color: 'gray' }}> id:</span>{entry._id}<br />
-                    <span style={{ color: 'gray' }}> username: </span>
-                    {entry.username} <br />
-                    <span style={{ color: 'gray' }}> firstName: </span>
-                    {entry.firstName} <br />
-                    <span style={{ color: 'gray' }}> lastName: </span>
-                    {entry.lastName} <br />
-                    <span style={{ color: 'gray' }}> email: </span>
-                    {entry.emailAddress} <br />
-                    <span style={{ color: 'gray' }}> password: </span>
-                    {entry.password} <br />
-                    <span style={{ color: 'gray' }}> profile_id: </span>
-                    {entry.profile_id} <br />
-                  </li>
-                ))}
-          </ul> 
+   
    
 
       <div style={{ padding: '10px' }}>
