@@ -35,7 +35,7 @@ import pic3 from './3.jpeg';
 import pic4 from './4.jpeg';
 import pic5 from './5.jpeg';
 import pic6 from './6.jpeg';
-import Signup from './Signup';
+import Signup from './signModal';
 import logo from './soigne.png';
   
 class App extends Component {
@@ -187,7 +187,7 @@ class App extends Component {
    
 
       <div style={{ padding: '10px' }}>
-        <button onClick={() => window.location = 'Signup.js'}>
+        <button onClick={() => window.location = 'signModal.js'}>
           SignUp
         </button>
       </div>

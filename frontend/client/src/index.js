@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import Signup from './Signup'
+import Signup from './signModal'
 import Feed from './Feed'
 
 const routing = (
@@ -17,12 +17,12 @@ const routing = (
             <Link to="/Feed">Feed</Link>
           </li>
           <li>
-            <Link to="/Signup">Signup</Link>
+            <Link to="/signModal">Signup</Link>
           </li>
         </ul>
         <Route exact path="/" component={App} />
         <Route path = "/Feed" component = {Feed} />
-        <Route path= "/Signup" component={Signup} />
+        <Route path= "/signModal" component={Signup} />
       </div>
     </Router>
   )

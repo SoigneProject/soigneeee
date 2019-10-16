@@ -1,5 +1,5 @@
 import React from 'react';
-import Signup from './Signup';
+import Signup from './signModal';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
