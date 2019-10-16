@@ -104,23 +104,24 @@ export default function ServerModal() {
           </Grid>
             <p>      
             </p>
-          <Button
+
+            <Button
+          type="submit"
+          fullWidth
+          variant="contained"
+          color= "secondary"
+          className={classes.submit}>Log in
+        </Button> <p></p>
+        
+        <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary first"
             className={classes.submit}
           >
-          Sign Up
+          Not a Member? Sign Up
           </Button><p></p>
-       
-        <Button
-          type="submit"
-          fullWidth
-          variant="contained"
-          color= "secondary"
-          className={classes.submit}>Have an account? Log in
-        </Button>
 
         </form>
       <Box mt={5}>
