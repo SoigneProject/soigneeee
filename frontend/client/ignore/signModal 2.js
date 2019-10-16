@@ -1,3 +1,4 @@
+import Modal from '@material-ui/core/Modal';
 import React, { Component } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
@@ -17,75 +18,62 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/styles';
 import { Route, BrowserRouter as Router } from 'react-router-dom'
 import Feed from "./Feed";
-/* 
+import { Dimensions } from 'react';
+import logo from './images/soigne.png';
+import bgd from './images/landingbgd.png';
 
-still figuring routing out for login/signup!!!
-const routing = (
-  <Router>
-  <Link to="/Feed">          
-  <Button
-    type="submit"
-    fullWidth
-    variant="contained"
-    color="primary"
-    //className={classes.submit}>
-    >Have an account? Log in</Button>
-  </Link>
-  <Route path = "/Feed" component = {Feed} />
-  </Router>
-)
+const useStyles = makeStyles(theme => ({
+  root: {
+    transform: 'translateZ(0)',
+    height: 768,
+    flexGrow: 1,
+  },
 
-*/
-
-const useStyles = theme => ({
-  paper: {
-    marginTop: 20,
+  modal: {
     display: 'flex',
-    flexDirection: 'column',
+    padding: theme.spacing(1),
     alignItems: 'center',
-  },
-  avatar: {
-    margin: 5,
-  },
-  form: {
-    width: '100%', // Fix IE 11 issue.
-    marginTop: 5,
-  },
-  submit: {
-    margin: 3,
-  },
-});
+    justifyContent: 'center',
+    backgroundImage: 'url(' + bgd + ')',
+    backgroundSize: 'cover',
+    overflow: 'hidden',
 
-class Signup extends Component {
-  constructor(props) {
-    super(props);
+  },
+  paper: {
+    width: 400,
+    height: 600,
+    backgroundColor: theme.palette.background.paper,
+    border: '0.5px solid #a9a9a9',
+    borderRadius: 10,
+    boxShadow: theme.shadows[5],
+    padding: theme.spacing(2, 4, 3),
+  },
+}));
 
-    this.state = {
-      signUpError: '',
-      email: '',
-      password: '',
-      confirmedPassword: '',
-      username: '',
-      firstName: '',
-      lastName: ''
-    };
+export default function ServerModal() {
+  const classes = useStyles();
+  const rootRef = React.useRef(null);
 
-    this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
-    this.onSignUp = this.onSignUp.bind(this);
-  }
-
-render(){
-  const { classes } = this.props;
   return (
-    <Container component="main" maxWidth="xs">
-      <CssBaseline />
-      <div className={classes.paper}>
+    <div className={classes.root} ref={rootRef}>
+      <Modal
+        disablePortal
+        disableEnforceFocus
+        disableAutoFocus
+        open
+        aria-labelledby="server-modal-title"
+        aria-describedby="server-modal-description"
+        className={classes.modal}
+        container={() => rootRef.current}
+      >
+        <div className={classes.paper}>
 
-        <Typography component="h1" variant="h4">
-          Welcome
-        </Typography>
-        <Typography component="h2" variant="h5" align="center">
-          Enter your information and join our growing community!
+          <p id="server-modal-description">
+          <Typography align="center" id = "server-modal-title">
+          <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>    
+          </Typography>
+        <Typography component="h2" fontsize = {14} align="center" id = "server-modal-title">
+          Enter your information and join our growing community! <p></p>
         </Typography>
         <form className={classes.form} noValidate>
           <Grid container spacing={2}>
@@ -158,48 +146,34 @@ render(){
                 //autoComplete="current-password"
               />
             </Grid>
-            
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={classes.submit}
-              onClick={this.onSignUp}
-            >
-              Sign Up
-            </Button>
-
           </Grid>
-        
+            <p>      
+            </p>
           <Button
             type="submit"
             fullWidth
             variant="contained"
-            color="primary"
+            color="primary first"
             className={classes.submit}
           >
           Sign Up
-          </Button>
+          </Button><p></p>
        
         <Button
           type="submit"
           fullWidth
           variant="contained"
-          color="primary"
-          className={classes.submit}>Have an account? Log in</Button>
+          color= "secondary"
+          className={classes.submit}>Have an account? Log in
+        </Button>
 
         </form>
-      </div>
       <Box mt={5}>
         <copyright/>
       </Box>
-    </Container>
+          </p>
+        </div>
+      </Modal>
+    </div>
   );
 }
-}
-
-Signup.propTypes = {
-  classes: PropTypes.object.isRequired,
-};
-export default withStyles(useStyles)(Signup);

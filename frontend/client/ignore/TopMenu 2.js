@@ -1,26 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Signup from './Signup';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+
 import InputField from './InputField';
 import logo from './images/soigne.png';
-import Feed from './Feed'
-import signModal from './signModal'
-import Login from './Login'
-import CreatePost from './CreatePost'
-import App from './App'
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
-
-  
 
   return (
     <Typography
@@ -81,11 +73,9 @@ export default function NavTabs() {
 
   return (
     <div className={classes.root}>
-    <div style = {{display: 'inline-flex',}}>
-    <img src = {logo} alt = "Logo" style = {{width: '16%', height: 76, marginTop: 5,}}/>
+    <img src = {logo} alt = "Logo" style = {{width: '100px'}}/>
 
     <InputField/>
-    </div>
 
       <AppBar position="static" elevation={0}>
         <Tabs
@@ -103,15 +93,14 @@ export default function NavTabs() {
           }}
           style = {{backgroundColor: 'white', color: 'black'}}
         >
-          <LinkTab label="Sign Up" href="./signModal" {...a11yProps(0)} />
-          <LinkTab label="Login" href="./Login" {...a11yProps(1)} />
-          <LinkTab label="Kristina" href="/" {...a11yProps(3)} />
-          <LinkTab label="Trending" href="./Feed" {...a11yProps(4)} />
-          <LinkTab label="Create Post" href="./CreatePost" {...a11yProps(5)} />
+          
+          <LinkTab label="About" href="/drafts" {...a11yProps(0)} />
+          <LinkTab label="Favorites" href="/trash" {...a11yProps(1)} />
+          <LinkTab label="Trending" href="/spam" {...a11yProps(2)} />
+          <LinkTab label="Kristina" href = "/spam" {...a11yProps(2)} />
         </Tabs>
       </AppBar>
       
     </div>
   );
 }
-//ReactDOM.render(routing, document.getElementById('root'))
