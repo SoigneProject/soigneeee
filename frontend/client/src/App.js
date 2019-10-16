@@ -46,9 +46,17 @@ import logo from './soigne.png';
 
 class App extends Component {
   constructor(props) {
-
-    super(props);
+    super(props);   
   }
+  state = {
+        data: [],
+      };
+
+   getDataFromDb = () => {
+        fetch('http://localhost:6969/users')
+          .then((res) => res.json())
+          .then((data) => this.setState({ data: data }));
+      };
 
   // here is our UI
   // it is easy to understand their functions when you
@@ -68,11 +76,8 @@ class App extends Component {
         },
       },
     });
- 
 
-
-    
-    const inputProps = {
+      const inputProps = {
       step: 300,
     };
     const avatarStyle = {
@@ -153,10 +158,7 @@ class App extends Component {
       return <Avatar src = {props.src} alt = {props.alt} style = {avatarStyle}></Avatar>;
     }
 
-    
-
   
-
     return (
       <div>
     <TopMenu/>
@@ -230,6 +232,27 @@ class App extends Component {
     
   
   </Grid>
+    <ul>{console.log(data)}
+       {data.length <= 0
+              ? 'NO DB ENTRIES YET'
+              : data.userObj.map((entry) => (
+                  <li style={{ padding: '10px' }} key={data.message}>
+                    <span style={{ color: 'gray' }}> id:</span>{entry._id}<br />
+                    <span style={{ color: 'gray' }}> username: </span>
+                    {entry.username} <br />
+                    <span style={{ color: 'gray' }}> firstName: </span>
+                    {entry.firstName} <br />
+                    <span style={{ color: 'gray' }}> lastName: </span>
+                    {entry.lastName} <br />
+                    <span style={{ color: 'gray' }}> email: </span>
+                    {entry.emailAddress} <br />
+                    <span style={{ color: 'gray' }}> password: </span>
+                    {entry.password} <br />
+                    <span style={{ color: 'gray' }}> profile_id: </span>
+                    {entry.profile_id} <br />
+                  </li>
+                ))}
+          </ul> 
    
 
       <div style={{ padding: '10px' }}>
