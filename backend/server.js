@@ -1,12 +1,17 @@
-var mongoose = require('mongoose');
 var express = require('express'),
+  mongoose = require('mongoose'),
+  cors = require('cors'),
   app = express(),
-  port = process.env.PORT || 6969,
+  port = 6969,
   userRoute = require('./api/routes/userRoute'),
-  bodyParser = require('body-parser');
+  postRoute = require('./api/routes/postRoute'),
+  bodyParser = require('body-parser'),
+  itemRoute = require('./api/routes/itemRoute'),
+  retailerRoute = require('./api/routes/retailerRoute');
 
 const uri = "mongodb+srv://Test:Test123@cs160-cluster-gigd4.mongodb.net/Soigne?retryWrites=true&w=majority";
 mongoose.connect(uri, {
+  useFindAndModify: false,
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
@@ -14,6 +19,9 @@ mongoose.connect(uri, {
 let db = mongoose.connection;
 // checks if connection with the database is successful
 db.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+// Use CORS
+app.use(cors());
 
 // (optional) only made for logging and
 // bodyParser, parses the request body to be a readable json format
@@ -29,6 +37,9 @@ app.use(bodyParser.json());
 
 // Register routes
 userRoute(app);
+postRoute(app);
+itemRoute(app);
+retailerRoute(app);
 
 // Error message for 404
 app.use(function (req, res) {
