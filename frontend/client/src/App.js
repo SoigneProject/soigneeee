@@ -38,6 +38,7 @@ import pic6 from './images/6.jpeg';
 import Signup from './Signup';
 import logo from './images/soigne.png';
 import signModal from './signModal';
+import CreatePost from './CreatePost';
   
 class App extends Component {
   // initialize our state
@@ -219,6 +220,7 @@ class App extends Component {
 
     return (
       <div>
+
 
     <TopMenu/>
     <Grid container spacing={3}>

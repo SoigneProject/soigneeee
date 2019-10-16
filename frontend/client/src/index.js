@@ -7,6 +7,7 @@ import Signup from './Signup'
 import Feed from './Feed'
 import signModal from './signModal'
 import Login from './Login'
+import CreatePost from './CreatePost'
 
 const routing = (
     <Router>
@@ -27,13 +28,16 @@ const routing = (
           <li>
             <Link to="/Login">Login</Link>
           </li>
+          <li>
+            <Link to="/CreatePost">Create Post</Link>
+          </li>
         </ul>
         <Route exact path="/" component={App} />
         <Route path = "/Feed" component = {Feed} />
         <Route path= "/Signup" component={Signup} />
         <Route path= "/signModal" component={signModal} />
         <Route path= "/Login" component={Login} />
-
+        <Route path= "/CreatePost" component={CreatePost} />
       </div>
     </Router>
   )

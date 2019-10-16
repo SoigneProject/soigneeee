@@ -21,6 +21,7 @@ import Feed from "./Feed";
 import { Dimensions } from 'react';
 import logo from './images/soigne.png';
 import bgd from './images/landingbgd.png';
+import TopMenu from './TopMenu';
 
 const useStyles = makeStyles(theme => ({
   root: {
