@@ -71,7 +71,8 @@ class Signup extends Component {
     this.setState((state) => state[e.target.name] = e.target.value);
   }
 
-  onSignUp() {
+  onSignUp(e) {
+    e.preventDefault();
     // Grab state
     const {
       email,
