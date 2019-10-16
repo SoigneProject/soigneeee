@@ -57,17 +57,21 @@ const useStyles = theme => ({
 });
 
 class Signup extends Component {
-  copyright() {
-    return (
-      <Typography variant="body2" color="textSecondary" align="center">
-        {'Copyright © '}
-        <Link color="inherit" href="https://material-ui.com/">
-          Your Website
-        </Link>{' '}
-        {new Date().getFullYear()}
-        {'.'}
-      </Typography>
-    );
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      signUpError: '',
+      email: '',
+      password: '',
+      confirmedPassword: '',
+      username: '',
+      firstName: '',
+      lastName: ''
+    };
+
+    this._handleTextFieldChange = this._handleTextFieldChange.bind(this);
+    this.onSignUp = this.onSignUp.bind(this);
   }
 
 render(){
@@ -154,6 +158,17 @@ render(){
                 //autoComplete="current-password"
               />
             </Grid>
+            
+            <Button
+              type="submit"
+              fullWidth
+              variant="contained"
+              color="primary"
+              className={classes.submit}
+              onClick={this.onSignUp}
+            >
+              Sign Up
+            </Button>
 
           </Grid>
         
